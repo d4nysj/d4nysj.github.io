@@ -34,3 +34,9 @@ Como caso de éxito reciente, diseñé e implementé una solución híbrida de a
 Si quieres profundizar en el código de mis repositorios, discutir arquitecturas de red o ver cómo puedo aportar valor técnico inmediato a tu departamento, no dudes en conectar conmigo:
 
 * 💼 **LinkedIn:** [linkedin.com/in/d4nysj](https://www.linkedin.com/in/d4nysj/)
+
+![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-FF6C37?style=for-the-badge&logo=n8n&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![Kali](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white)
