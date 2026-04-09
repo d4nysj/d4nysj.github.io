@@ -1,3 +1,13 @@
+---
+
+# the default layout is 'page'
+
+icon: fas fa-info-circle
+
+order: 5
+
+---
+
 ## Quién soy
 
 Soy **Daniel San Juan**, Analista de Ciberseguridad Ofensiva y Security Automation Engineer. Mi enfoque profesional se basa en una premisa técnica muy clara: **proteger una infraestructura crítica no es suficiente si su Operación y Mantenimiento (O&M) no es eficiente y escalable.**
