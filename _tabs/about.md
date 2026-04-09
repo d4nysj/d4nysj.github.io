@@ -1,12 +1,9 @@
 ---
-
-# the default layout is 'page'
-
-icon: fas fa-info-circle
-
+layout: Sobre
+icon: fas fa-archive
 order: 5
-
 ---
+
 
 ## Quién soy
 
