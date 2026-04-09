@@ -27,4 +27,3 @@ Como caso de éxito reciente, diseñé e implementé una solución híbrida de a
 Si quieres profundizar en el código de mis repositorios, discutir arquitecturas de red o ver cómo puedo aportar valor técnico inmediato a tu departamento, no dudes en conectar conmigo:
 
 * 💼 **LinkedIn:** [linkedin.com/in/d4nysj](https://www.linkedin.com/in/d4nysj/)
-* 📥 **Currículum Vitae:** [Descargar mi CV en PDF](#)
