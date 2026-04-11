@@ -4,7 +4,7 @@ date: 2026-04-11 11:00:00 +0200
 categories: [Proyectos, Automatización]
 tags: [n8n, javascript, telegram, osint]
 image:
-  path: [https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1000](https://raw.githubusercontent.com/d4nysj/n8n-IP-Block-Monitor/4d861dff872891b79516eba42b9fc054da640c92/a.png
+  path: [https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1000](https://raw.githubusercontent.com/d4nysj/n8n-IP-Block-Monitor/4d861dff872891b79516eba42b9fc054da640c92/a.png]
   alt: Código en pantalla monitorizando redes
 ---
 
