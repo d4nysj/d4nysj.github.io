@@ -1,6 +1,6 @@
 ---
 title: "Evitando la Fatiga de Alertas: Monitor de Bloqueos Dinámicos con n8n"
-date: 2026-04-12 11:00:00 +0200
+date: 2026-04-11 11:00:00 +0200
 categories: [Proyectos, Automatización]
 tags: [n8n, javascript, telegram, osint]
 image:
