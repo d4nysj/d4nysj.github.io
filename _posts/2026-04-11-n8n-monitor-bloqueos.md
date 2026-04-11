@@ -4,11 +4,14 @@ date: 2026-04-11 11:00:00 +0200
 categories: [Proyectos, Automatización]
 tags: [n8n, javascript, telegram, osint]
 image:
-  path: https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1000
+  path: [https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1000](https://raw.githubusercontent.com/d4nysj/n8n-IP-Block-Monitor/4d861dff872891b79516eba42b9fc054da640c92/a.png
   alt: Código en pantalla monitorizando redes
 ---
 
 ## El Problema del Polling y el Spam de Alertas
+
+![Flujo de trabajo en n8n](https://raw.githubusercontent.com/d4nysj/n8n-IP-Block-Monitor/4d861dff872891b79516eba42b9fc054da640c92/a.png)
+
 
 Cuando monitorizamos infraestructuras, listas negras de IPs o bloqueos dinámicos a nivel de ISP, el enfoque novato es simple: programar un script cada 10 minutos y enviar un mensaje si hay un bloqueo. 
 
@@ -48,3 +51,7 @@ if (newStatus !== lastStatus) {
   // Silencio de radio: no hay cambio
   return [{ json: { hasChanged: false, isBlocked: newStatus } }];
 }
+
+
+
+
