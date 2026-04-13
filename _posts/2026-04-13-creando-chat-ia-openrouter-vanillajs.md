@@ -69,3 +69,4 @@ async function sendMessage() {
     showToast('Error al conectar: ' + err.message);
   }
 }
+```
