@@ -4,7 +4,7 @@ date: 2026-04-13 12:00:00 +0200
 categories: [Proyectos, Desarrollo Web]
 tags: [javascript, openrouter, llm, frontend, api]
 image:
-  path: [https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000](https://github.com/d4nysj/D4NyosChat/raw/main/img/2.png)
+  path: https://github.com/d4nysj/D4NyosChat/raw/main/img/2.png
   alt: Interfaz de chat de Inteligencia Artificial abstracta
 ---
 
