@@ -76,4 +76,4 @@ Comparto mi certificación eCPPTv3, un examen que pone a prueba tu paciencia y t
 
 *(Haz clic en la imagen para ver mi publicación en LinkedIn)*
 
-[![Certificado oficial eCPPTv3](/assets/img/ecppt.jpg)](https://www.linkedin.com/feed/update/urn:li:activity:7418666260957396992/)
+[![Certificado oficial eCPPTv3](/assets/img/ecppt.jpg)](https://www.linkedin.com/feed/update/urn:li:activity:7432012677570473984/)
