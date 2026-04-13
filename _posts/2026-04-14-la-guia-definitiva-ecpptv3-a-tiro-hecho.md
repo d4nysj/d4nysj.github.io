@@ -1,6 +1,6 @@
 ---
 title: "La Cruda Realidad del eCPPTv3: Guía Definitiva y 'A Tiro Hecho' para Aprobar"
-date: 2026-04-16 09:00:00 +0200
+date: 2026-04-14 00:57:00 +0200
 categories: [Certificaciones, Ciberseguridad]
 tags: [ecpptv3, pentesting, active-directory, hacking, redteam]
 image:
