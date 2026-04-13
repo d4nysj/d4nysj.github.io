@@ -4,8 +4,8 @@ date: 2026-04-14 00:00:00 +0200
 categories: [Certificaciones, Ciberseguridad]
 tags: [ejptv2, pentesting, elearnsecurity, hacking, redteam]
 image:
-  path: https://media.licdn.com/dms/image/v2/D4E22AQGcZ5rbwhKLfg/feedshare-shrink_800/B4EZvRlpxIKEAg-/0/1768747867496?e=1777507200&v=beta&t=aF1WrjtjO_V6yqXaZtmVSD21x9lJ8qTq6tqCzNvOJGI
-  alt: ejptv2Danielsanjuan
+  path: /assets/img/ejpt.jpg
+  alt: Certificado oficial eJPTv2 de eLearnSecurity
 ---
 
 Vamos al grano. Quieres sacarte la **eJPTv2** (eLearnSecurity Junior Penetration Tester) y necesitas saber exactamente a qué te enfrentas y cómo prepararte sin perder el tiempo. Esta certificación es la puerta de entrada perfecta al mundo del *pentesting* porque es 100% práctica. Nada de memorizar teoría inútil; aquí te dan una máquina atacante Kali Linux en tu navegador (sin conexión a internet público) y te sueltan en una red empresarial para que la audites.
@@ -70,4 +70,6 @@ Haz únicamente las máquinas de nivel "Muy Fácil" y "Fácil":
 
 ¡Y aquí está el resultado de todo el estudio y la práctica! Comparto mi certificado eJPTv2 súper orgulloso de este logro. Ha sido un camino exigente pero increíblemente gratificante. Espero que esta guía te sirva de ayuda para conseguir el tuyo. ¡Mucho ánimo y a hackear con ética! 🎓💻
 
-![Certificado oficial eJPTv2](https://media.licdn.com/dms/image/v2/D4E22AQGcZ5rbwhKLfg/feedshare-shrink_800/B4EZvRlpxIKEAg-/0/1768747867496?e=1777507200&v=beta&t=aF1WrjtjO_V6yqXaZtmVSD21x9lJ8qTq6tqCzNvOJGI)
+*(Haz clic en la imagen para ver mi publicación en LinkedIn)*
+
+[![Certificado oficial eJPTv2](/assets/img/ejpt.jpg)](https://www.linkedin.com/feed/update/urn:li:activity:7418666260957396992/)
