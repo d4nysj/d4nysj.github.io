@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proxmox VE — Guía de Instalación y Configuración Desde Cero"
-date: 2025-01-01
+date: 2026-04-16
 categories: [homelab, virtualización]
 tags: [proxmox, kvm, lxc, servidor, linux]
 description: "Guía completa para montar un servidor de virtualización profesional con Proxmox VE, desde la instalación hasta la optimización avanzada."
