@@ -62,7 +62,6 @@ for modelo_actual in modelos_a_probar:
         if resp.status_code == 503:
             break  # Pasar al siguiente modelo
 {% endraw %}
-
 **3. El panel de control (HTML/CSS)**
 
 Una interfaz web sencilla para gestionar el pool sin tocar la base de datos directamente. Desde aquí puedes añadir y eliminar keys y modelos, ver el historial de las últimas 50 peticiones, e importar/exportar keys en bulk desde un archivo `.txt`.
