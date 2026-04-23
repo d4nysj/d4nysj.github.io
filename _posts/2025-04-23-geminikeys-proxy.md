@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cómo construí un proxy inteligente para no volver a ver un error 429 de Gemini"
-date: 2025-01-15 10:00:00 +0100
+date: 2026-04-23 10:00:00 +0100
 categories: [python, infraestructura, gemini, api]
 tags: [python, flask, google-gemini, api-proxy, sqlite, raspberry-pi, automation]
 image: /assets/img/posts/geminikeys-banner.png
@@ -121,7 +121,7 @@ Hay cosas que dejé fuera conscientemente para mantener el scope manejable, pero
 El proyecto completo está en GitHub. Tiene dos ficheros principales (`app.py` y `templates/index.html`), menos de 200 líneas de código en total, y las únicas dependencias son Flask y requests.
 
 ```bash
-git clone https://github.com/tu-usuario/GeminiKeys.git
+git clone https://github.com/d4nysj/Gemini-API-Key-Rotator-Intelligent-Proxy
 cd GeminiKeys
 pip install flask requests
 python app.py
