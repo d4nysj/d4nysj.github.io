@@ -7,7 +7,7 @@ image: https://opengraph.githubassets.com/1/d4nysj/Gemini-API-Key-Rotator-Intell
 tags: [github, proyecto, python, gemini, api]
 ---
 
-![Vista previa del repo](https://opengraph.githubassets.com/1/d4nysj/Gemini-API-Key-Rotator-Intelligent-Proxy)
+![Vista previa del repo](https://raw.githubusercontent.com/d4nysj/Gemini-API-Key-Rotator-Intelligent-Proxy/refs/heads/main/img/1.png)
 
-# Gemini API Key Rotator & Intelligent Proxy
+
 
