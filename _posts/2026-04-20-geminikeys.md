@@ -1,23 +1,13 @@
 ---
-layout: post
 title: "Gemini API Key Rotator & Intelligent Proxy"
-date: 2025-04-23
-description: "Middleware de infraestructura para maximizar la disponibilidad de la API de Google Gemini mediante rotación automática y fallback de modelos."
-image: https://raw.githubusercontent.com/d4nysj/Gemini-API-Key-Rotator-Intelligent-Proxy/refs/heads/main/img/1.png
+date: 2025-04-23 11:00:00 +0200
 tags: [github, proyecto, python, gemini, api]
+image:
+  path: https://raw.githubusercontent.com/d4nysj/Gemini-API-Key-Rotator-Intelligent-Proxy/refs/heads/main/img/1.png
+  alt: Código en pantalla monitorizando redes
 ---
 
 
-# Gemini API Key Rotator & Intelligent Proxy
-
-> **Middleware de infraestructura** para maximizar la disponibilidad de la API de Google Gemini mediante rotación automática de keys y fallback inteligente de modelos.
-
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat-square&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-2.x-000000?style=flat-square&logo=flask&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-
----
 
 ## ¿Qué problema resuelve?
 
