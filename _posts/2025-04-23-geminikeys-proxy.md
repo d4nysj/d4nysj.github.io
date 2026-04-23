@@ -40,16 +40,9 @@ Tres tablas simples: `api_keys` para el pool de llaves, `models` para la lista d
 
 **2. El proxy inteligente (Flask)**
 
-El corazón del proyecto. Cuando llega una petición a `/proxy/<endpoint>`, la lógica es:
+**2. El proxy inteligente (Flask)**
 
-1. Lee el endpoint para extraer el nombre del modelo solicitado con regex.
-2. Construye una lista de modelos a intentar: primero el original, luego los de fallback.
-3. Para cada modelo, intenta con dos keys diferentes del pool (orden aleatorio).
-4. Si recibe `200`, devuelve la respuesta al cliente.
-5. Si recibe `503`, pasa al siguiente modelo (el servicio está saturado).
-6. Si recibe `400`, lo devuelve inmediatamente (error del cliente, no tiene sentido reintentar).
-7. Registra cada intento en la tabla de logs.
-
+{% raw %}
 ```python
 for modelo_actual in modelos_a_probar:
     endpoint_modificado = endpoint.replace(
@@ -58,7 +51,7 @@ for modelo_actual in modelos_a_probar:
     )
     for _ in range(2):
         llave = llaves_disponibles[intento % len(llaves_disponibles)]
-        google_url = f"https://generativelanguage.googleapis.com/{endpoint_modificado}?key={llave}"
+        google_url = f"[https://generativelanguage.googleapis.com/](https://generativelanguage.googleapis.com/){endpoint_modificado}?key={llave}"
         
         resp = requests.request(method=request.method, url=google_url, ...)
         
@@ -68,7 +61,7 @@ for modelo_actual in modelos_a_probar:
             return Response(resp.content, 400)  # ❌ Error cliente
         if resp.status_code == 503:
             break  # Pasar al siguiente modelo
-```
+
 
 **3. El panel de control (HTML/CSS)**
 
