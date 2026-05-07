@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Redirigiendo...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo a las reseñas...</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EQ6337M9Q"></script>
     <script>
@@ -21,8 +22,78 @@
     <noscript>
         <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}">
     </noscript>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .tarjeta {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 100%;
+            width: 380px;
+        }
+        .estrellas {
+            color: #fbbc04; /* Color amarillo de las estrellas de Google */
+            font-size: 45px;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #202124;
+        }
+        p {
+            font-size: 16px;
+            color: #5f6368;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4285f4; /* Color azul de Google */
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            animation: girar 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .enlace-alternativo {
+            display: block;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
-    <p>Cargando destino... Si no te redirige automáticamente, <a href="{{ page.redirect_url }}">haz clic aquí</a>.</p>
+<body>
+    <div class="tarjeta">
+        <div class="estrellas">★★★★★</div>
+        <h1>¡Gracias por visitarnos!</h1>
+        <p>Tu opinión nos ayuda a crecer. <br><b>¡Recuerda dejarnos 5 estrellas!</b></p>
+        
+        <div class="spinner"></div>
+        
+        <a href="{{ page.redirect_url }}" class="enlace-alternativo">Haz clic aquí si no redirige automáticamente</a>
+    </div>
 </body>
 </html>
