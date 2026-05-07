@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirigiendo...</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EQ6337M9Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7EQ6337M9Q');
+    </script>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ page.redirect_url }}";
+        }, 500);
+    </script>
+
+    <noscript>
+        <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}">
+    </noscript>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+    <p>Cargando destino... Si no te redirige automáticamente, <a href="{{ page.redirect_url }}">haz clic aquí</a>.</p>
+</body>
+</html>
