@@ -201,11 +201,6 @@ GeminiKeys/
 - **Orden de modelos:** El proxy prueba los modelos en el orden en que aparecen en tu lista de fallback. Pon los más rápidos/baratos primero.
 - **Logs:** Los últimos 50 registros se muestran en el panel. Usa "Limpiar Historial" para resetear.
 
----
-
-## Licencia
-
-Este proyecto está bajo la [Licencia MIT](LICENSE). Úsalo, fórkéalo y mejóralo libremente.
 
 ---
 
