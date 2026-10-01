@@ -1,12 +1,13 @@
 ---
 title: "Google manda la IA a orbitar: el proyecto Suncatcher"
 date: 2026-10-01 14:36:47 +0200
-categories: [Tecnología, IA]
-tags: [google, ia, hardware, satelites, computacion]
+categories: ["Tecnología", "IA"]
+tags: ["google", "ia", "hardware", "satelites", "computacion"]
 image:
   path: https://picsum.photos/seed/google-manda-la-ia-a-orbitar-el-proyecto-suncatcher/1200/630
-  alt: Google manda la IA a orbitar: el proyecto Suncatcher
+  alt: "Google manda la IA a orbitar: el proyecto Suncatcher"
 ---
+
 
 Hace un par de años habríamos dicho que esto es ciencia ficción o que a algún directivo de Google se le ha ido la pinza con el presupuesto de I+D. Pero no. Google acaba de lanzar "Suncatcher", su primer satélite para llevar el procesamiento de IA directamente al espacio.
 
