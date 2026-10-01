@@ -4,7 +4,7 @@ date: 2026-10-01 14:36:47 +0200
 categories: ["Tecnología", "IA"]
 tags: ["google", "ia", "hardware", "satelites", "computacion"]
 image:
-  path: https://picsum.photos/seed/google-manda-la-ia-a-orbitar-el-proyecto-suncatcher/1200/630
+  path: https://live.staticflickr.com/5056/5508689496_0c91b455e7_b.jpg
   alt: "Google manda la IA a orbitar: el proyecto Suncatcher"
 ---
 
