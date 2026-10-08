@@ -4,7 +4,7 @@ date: 2026-10-03 09:00:00 +0200
 categories: ["Proyectos", "DevSecOps"]
 tags: ["opengym", "vercel", "supabase", "selfhosted", "react"]
 image:
-  path: https://opengraph.githubassets.com/1/d4nysj/opengym
+  path: /assets/img/posts/2026-10-03-opengym-vercel-supabase.png
   alt: "Monté mi propio OpenGym gratis en Vercel"
 ---
 
