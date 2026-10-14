@@ -8,52 +8,17 @@ image:
   alt: "Hackers y millones en Pwn2Own: el estado real del software"
 ---
 
-Acaba de terminar la Pwn2Own en Irlanda y los números dan miedo. Se han repartido más de 1.2 millones de dólares en premios por encontrar 98 vulnerabilidades zero-day. Si te dedicas a esto o simplemente usas software, hay que parar un segundo y mirar qué está pasando, porque el panorama es de todo menos tranquilo.
+Acaba de terminar la Pwn2Own de Irlanda y los números son de esos que te hacen releer la noticia dos veces: más de 1,2 millones de dólares repartidos y 98 zero-days encontrados. Noventa y ocho. En cuatro días. Si trabajas en esto, para un segundo; si no, también, porque el software que acaban de reventar probablemente lo tienes en casa sin saberlo.
 
-## La realidad de los zero-days
+Para quien no conozca el percal: Pwn2Own no es un CTF de aficionados buscando el típico fallo de un plugin de WordPress. Es gente muy buena, con meses de trabajo detrás, rompiendo routers, impresoras de oficina y software "serio" que todo el mundo da por hecho que está blindado. Y lo están rompiendo en directo, delante de los propios fabricantes, a cambio de un cheque — que visto lo visto, les sale barato.
 
-Cuando hablamos de Pwn2Own, no estamos hablando de scripts de aficionados que encuentran un fallo en un plugin de WordPress. Hablamos de gente capaz de entrar hasta la cocina en dispositivos de red, impresoras industriales y software que todos damos por sentado que es seguro.
+Y aquí va lo bueno de verdad: que se pague tanto por encontrar estos fallos es, en realidad, una buena noticia. Si el investigador se lleva el dinero por avisar en vez de vendérselo a quien peor te lo quiera hacer, todos salimos ganando un poco. El problema no es que existan los zero-days — eso siempre va a pasar — el problema es el volumen. 98 en una sola edición es una barbaridad, y lo que no sale en Pwn2Own es el resto del iceberg: lo que no se presenta a concurso y se vende directamente al mejor postor.
 
-El dato clave son esos 98 fallos. Eso significa 98 puertas abiertas de par en par que los fabricantes no sabían ni que existían hasta que alguien, con mucha paciencia y bastante mala leche técnica, decidió abrirlas. El hecho de que se paguen estas cantidades demuestra que **el mercado de los exploits es rentable**, y mucho. Si un hacker prefiere vender el fallo a la organización del concurso o a un broker en lugar de usarlo para beneficio propio, es una buena noticia para nosotros, pero el volumen de vulnerabilidades es alarmante.
+Lo que a mí más me preocupa no es el fallo en sí, es la cadena. Una impresora comprometida no es "solo una impresora" — es la puerta de atrás para moverte por toda la red hasta llegar a algo que sí duele de verdad. Y ese salto de cacharro tonto a servidor con datos reales pasa muchas más veces de las que nos gustaría admitir.
 
-## ¿Por qué nos debería importar?
+¿Qué haces con esto mañana por la mañana? Tres cosas, sin darle más vueltas: actualiza lo que tengas pendiente de actualizar — ya, no la semana que viene; si un dispositivo no necesita estar expuesto a internet, córtale el acceso, no le pongas la vida fácil a nadie; y asume que, tarde o temprano, algo de tu red va a caer, así que segmenta para que si entran por la impresora no acaben paseándose por la base de datos.
 
-Podríamos pensar que esto solo afecta a los que instalan routers de gama alta o equipos de oficina, pero el software es un ecosistema conectado. Si el firmware de una impresora se compromete, es el primer paso para pivotar dentro de una red corporativa.
-
-Para ponerlo en perspectiva, aquí tienes cómo se reparten estas vulnerabilidades en un escenario real:
-
-| Categoría | Nivel de Riesgo | Impacto |
-| :--- | :--- | :--- |
-| Dispositivos de red | Crítico | Acceso total a la infraestructura |
-| Software de escritorio | Alto | Ejecución remota de código |
-| Periféricos (Impresoras) | Medio/Alto | Exfiltración de datos |
-
-Cuando alguien publica un exploit funcional sobre un software que tenemos desplegado en producción, la cuenta atrás para el parche empieza, pero el riesgo de que alguien ya haya explotado ese agujero antes es real. Es lo que llamamos el periodo de **exposición cero**.
-
-## Un ejemplo técnico rápido
-
-Para que te hagas una idea de por dónde van los tiros, muchas de estas ejecuciones dependen de un desbordamiento o de una validación mal hecha en el parsing de datos. Un pseudo-código de lo que suelen buscar sería algo así:
-
-```c
-// Ejemplo simplificado de lo que encuentran
-void procesar_input(char *data) {
-    char buffer[512];
-    // Sin validar el tamaño del input, el buffer desborda
-    strcpy(buffer, data); 
-}
-```
-
-Es algo básico, pero a gran escala y en sistemas complejos, encontrar dónde ocurre esto es lo que paga esas facturas millonarias.
-
-## Conclusión: ¿Qué hacemos con esto?
-
-No podemos vivir con miedo, pero sí podemos vivir con precaución. Aquí van tres puntos clave para aplicar mañana mismo:
-
-1. **Actualiza lo que sea**: Si salió un parche después de Pwn2Own, instálalo ayer. Los atacantes no pierden el tiempo cuando saben que hay un exploit público.
-2. **Minimiza la superficie de ataque**: Si un dispositivo o software no necesita estar expuesto a internet, corta el acceso. No le facilites el trabajo al que está al otro lado.
-3. **Desconfía por defecto**: Asume que tu red puede ser comprometida. Implementa segmentación para que, si entran por una impresora, no terminen controlando tu servidor de base de datos.
-
-La info detallada de los fallos y los premios la puedes ver directamente en el reporte de BleepingComputer. Es un buen recordatorio de que la seguridad perfecta no existe, solo existe la seguridad constante.
+La seguridad perfecta no existe. Pero currarte un poco la higiene básica te quita de encima el 90% de los sustos, y el otro 10% ya es mala suerte que ni Pwn2Own arregla.
 
 ---
 *Fuente: [BleepingComputer](https://www.bleepingcomputer.com/)*

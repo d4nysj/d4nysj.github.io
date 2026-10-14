@@ -8,42 +8,15 @@ image:
   alt: "Relapse: Jailbreak para casi cualquier PS5"
 ---
 
-Hace un par de días saltó la noticia que muchos esperaban en la escena de la scene. Un desarrollador llamado ntfargo soltó en GitHub **Relapse**, un jailbreak que básicamente deja las puertas de la PlayStation 5 abiertas de par en par. Si tienes una consola con un firmware entre el 7.00 y el 13.60, estás dentro.
+Hace un par de días saltó la noticia que media escena llevaba esperando desde hace meses: ntfargo subió a GitHub **Relapse**, un jailbreak que deja la PS5 con las puertas abiertas de par en par. Si tu consola está en un firmware entre el 7.00 y el 13.60, estás dentro.
 
-## Cómo funciona el truco
+La parte técnica tiene su gracia. No es un fallo, son dos encadenados. Primero ataca JavaScriptCore — el motor que mueve el navegador de la consola — con una corrupción de memoria que le deja ejecutar código desde ahí dentro. Hasta aquí, control limitado: estás en el navegador, no en el sistema. El segundo paso es el bueno: una condición de carrera tipo use-after-free en el kernel que, bien encadenada con lo anterior, te da lectura y escritura sobre la memoria del sistema entero. Traducido: pasas de "estoy viendo una web" a "puedo tocar lo que me dé la gana".
 
-La magia detrás de esto no es una sola vulnerabilidad, sino una combinación de dos fallos técnicos bastante elegantes. Primero, el exploit ataca **JavaScriptCore**, el motor que mueve el navegador de la consola. Mediante una corrupción de memoria, el atacante logra ejecutar código arbitrario desde el propio navegador.
+Ahora la parte menos glamurosa, porque esto no es tan sencillo como pulsar un botón. No es persistente — apagas la consola y vuelves a empezar desde cero, cadena de exploits incluida. La fase de WebKit falla más de lo que debería, y la del kernel tiene la mala costumbre de colgar la consola o reiniciarla sola a mitad del proceso. Si actualizaste a la 14.00 (salió a mediados de septiembre), olvídate: Sony ya tapó el agujero y de momento nadie ha encontrado la vuelta.
 
-Una vez ahí, no tienen el control total, así que utilizan una segunda vulnerabilidad: una **condición de carrera (race condition)** de tipo *use-after-free* en el kernel. Al encadenar ambos fallos, saltan del navegador a obtener lectura y escritura completa sobre la memoria del sistema. En lenguaje sencillo: consiguen los permisos necesarios para modificar lo que quieran en la consola.
+¿Merece la pena? Si te gusta trastear, sí, es un juguete nuevo precioso. Si solo quieres jugar sin dramas, vas a pasar más tiempo reiniciando la consola que jugando, y no te lo recomiendo.
 
-## Lo que necesitas saber antes de tocar nada
-
-Aquí es donde entra la realidad. Esto no es un proceso automático ni estable.
-* **No es persistente:** Cada vez que apagas o reinicias la PS5, pierdes el acceso. Tienes que volver a lanzar la cadena de exploits desde cero.
-* **La estabilidad es un chiste:** No siempre funciona a la primera. La parte del WebKit suele pedir varios intentos y, en la fase del kernel, es muy común que la consola se bloquee o se reinicie sola. Ten paciencia o te vas a frustrar rápido.
-* **El muro de Sony:** Si actualizaste a la versión 14.00, lanzada a mediados de septiembre de 2026, olvídate. Sony tapó el agujero y, ahora mismo, no hay marcha atrás conocida.
-
-Si estás en una versión vulnerable, el flujo técnico es básicamente este:
-
-```javascript
-// Esquema simplificado del exploit
-if (webkit_exploit()) {
-    trigger_race_condition_kernel();
-    if (check_rw_access()) {
-        enable_homebrew_capabilities();
-    } else {
-        panic_and_reboot(); // Es lo que pasa el 50% de las veces
-    }
-}
-```
-
-## ¿Vale la pena?
-
-Si eres un entusiasta de la seguridad, de la preservación de software o simplemente te gusta cacharrear, es una oportunidad de oro para trastear con el sistema operativo de Sony. Si lo que quieres es jugar sin complicaciones, prepárate para perder más tiempo reiniciando la consola que jugando.
-
-La información técnica detallada proviene originalmente de **GBHackers**. Si decides probarlo, hazlo bajo tu propia responsabilidad. Entiende que estás forzando a un sistema a hacer algo para lo que no fue diseñado y los reinicios inesperados, aunque sean parte del proceso, nunca son amigos de los componentes electrónicos a largo plazo.
-
-Mi recomendación: si tienes una consola en un firmware vulnerable, **desconéctala de internet** ya mismo para evitar actualizaciones automáticas. Quédate donde estás y sigue el progreso de la comunidad, porque esto acaba de empezar y es probable que la estabilidad mejore en los próximos meses.
+Un consejo si estás en firmware vulnerable y no piensas tocarlo todavía: desconéctala de internet ya, para que no se actualice sola y pierdas la ventana. Y si decides meterle mano, hazlo sabiendo que forzar reinicios constantes a una consola nunca le sienta bien al hardware a largo plazo — nada que vaya a explotar, pero tampoco le estás haciendo ningún favor.
 
 ---
 *Fuente: [GBHackers](https://gbhackers.com/sony-ps5-relapse-jailbreak-exploit-uses/)*
