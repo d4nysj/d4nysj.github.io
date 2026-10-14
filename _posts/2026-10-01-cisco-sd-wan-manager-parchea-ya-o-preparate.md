@@ -8,48 +8,15 @@ image:
   alt: "Cisco SD-WAN Manager: Parchea ya o prepárate"
 ---
 
-Si trabajas con infraestructuras de red y Cisco ha saltado a tu radar hoy, deja el café un segundo y presta atención. La CISA acaba de actualizar su catálogo de **Vulnerabilidades Explotadas Conocidas (KEV)** y han metido un "bicho" en el **Cisco Catalyst SD-WAN Manager** que es para echarse a temblar.
+Si trabajas con redes y hoy se te ha cruzado Cisco en el radar, deja el café un segundo. La CISA acaba de meter en su catálogo de vulnerabilidades explotadas activamente (KEV) un fallo del Catalyst SD-WAN Manager que da bastante miedo: CVE-2026-76504, un bypass de autenticación crítico.
 
-La vulnerabilidad en cuestión es la **CVE-2026-76504**. No es el típico bug menor que puedes dejar para el mes que viene. Estamos hablando de un **bypass de autenticación crítico**.
+Lo gordo del asunto es que no hace falta usuario ni contraseña. Un atacante remoto, manipulando cómo el gestor interpreta una codificación hexadecimal en las peticiones que recibe, consigue colarse directamente con privilegios de administrador. El sistema no está validando bien lo que le llega, y con eso basta.
 
-## ¿Qué está pasando realmente?
+Y esto no es un fallo menor de los que puedes dejar aparcados hasta la próxima ventana de mantenimiento. Quien controla el SD-WAN Manager controla el cerebro de toda la red: puede interceptar tráfico, redirigir el enrutamiento a donde le dé la gana, o plantar puertas traseras en los dispositivos edge sin que nadie se entere hasta que sea demasiado tarde. Y la CISA no lo ha metido en el KEV por precaución — está en esa lista porque ya se está explotando de verdad, no es una prueba de concepto de laboratorio.
 
-Básicamente, un atacante remoto —sin tener que meter ni un solo usuario ni contraseña— puede colarse hasta la cocina y **conseguir privilegios de administrador**. 
+Si gestionas uno de estos, el plan es el de siempre pero con más urgencia que de costumbre: entra al panel y comprueba si tu versión está afectada, y si hay parche, instálalo hoy, no la semana que viene. Si por lo que sea no puedes parchear ahora mismo, al menos saca la interfaz de gestión de internet — que solo sea accesible desde tu VPN o tu red de administración, nunca desde cualquier IP del mundo.
 
-¿Cómo lo hacen? Pues por lo que se sabe, manipulando una **codificación hexadecimal** en las peticiones que recibe el gestor. Es decir, el sistema no está validando bien la entrada y un atacante con un script medianamente decente puede saltarse la puerta de entrada. Si tienes el SD-WAN Manager expuesto a internet, ya estás tardando en aplicar medidas.
-
-## ¿Por qué es un problema serio?
-
-Cualquiera que tenga acceso de administrador en una solución de SD-WAN tiene las llaves del reino. Si te controlan el "cerebro" de la red, pueden:
-
-*   **Interceptar tráfico** de toda la infraestructura.
-*   **Modificar políticas de enrutamiento** para redirigir datos a donde no deberían.
-*   **Desplegar payloads** o puertas traseras en los dispositivos edge de la red.
-
-Siendo una vulnerabilidad que ya está siendo explotada "en la vida real" (según la CISA), esto significa que los atacantes ya tienen la receta para entrar. No es una prueba de concepto teórica, es un peligro activo.
-
-## Plan de acción (lo que tienes que hacer YA)
-
-No te compliques, la solución es la que marca el fabricante. Si gestionas estos equipos, haz lo siguiente hoy mismo:
-
-1.  **Revisa tus versiones:** Entra en el panel de Cisco y verifica si tu versión de Catalyst SD-WAN Manager está afectada.
-2.  **Parchea sin esperar:** Si hay una actualización de seguridad que solucione la CVE-2026-76504, aplícala ya. No busques excusas de "es que hay ventana de mantenimiento el mes que viene".
-3.  **Aísla:** Si por lo que sea no puedes parchear ahora mismo, **saca el Management de internet inmediatamente**. Bloquea el acceso a la interfaz de gestión desde cualquier IP que no sea tu VPN o una red de administración securizada. 
-
-Aquí tienes un ejemplo de cómo deberías estar bloqueando esto en tus listas de acceso (ACL) si tienes un firewall delante del Manager:
-
-```bash
-# Ejemplo conceptual para bloquear acceso externo al gestor
-access-list 101 permit ip 10.50.0.0 0.0.0.255 host 192.168.1.10
-access-list 101 deny ip any host 192.168.1.10
-# Aplica esto en la interfaz que da al exterior
-```
-
-## Conclusión
-
-La lección aquí es la de siempre: **no expongas interfaces críticas de gestión a internet**. Es una tentación muy grande por la comodidad, pero hoy día es dejar la puerta de tu casa abierta de par en par. La CISA ha metido esto en su lista KEV porque los malos ya están llamando a la puerta. Actualiza, cierra el acceso externo y duerme tranquilo esta noche.
-
-Puedes ver el registro detallado en la fuente oficial de [CISA - Known Exploited Vulnerabilities](https://www.cisa.gov).
+La lección de fondo es la de siempre y seguimos sin aprenderla: no expongas interfaces de gestión críticas a internet. Es cómodo, lo sé, pero es dejar la puerta de casa abierta confiando en que nadie pase por ahí. Parchea, cierra el acceso externo, y esta noche duermes mejor.
 
 ---
 *Fuente: [CISA - Known Exploited Vulnerabilities](https://www.cisa.gov)*

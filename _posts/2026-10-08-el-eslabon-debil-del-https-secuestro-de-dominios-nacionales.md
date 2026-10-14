@@ -8,44 +8,15 @@ image:
   alt: "El eslabón débil del HTTPS: secuestro de dominios nacionales"
 ---
 
-Lo de esta semana es un recordatorio de que, a veces, la seguridad de Internet depende de hilos más finos de lo que nos gusta pensar. No han hackeado a Google, ni han encontrado un bug en su código. Han atacado la **infraestructura de los registros de dominio** de tres países: Ghana (.gh), Sierra Leona (.sl) y Samoa Americana (.as).
+Esta semana tocó recordar que la seguridad de medio internet depende de hilos bastante más finos de lo que nos gusta pensar. Nadie ha hackeado a Google ni ha encontrado un bug en su código — lo que han hackeado es la infraestructura de los registros de tres países: Ghana (.gh), Sierra Leona (.sl) y Samoa Americana (.as).
 
-Básicamente, los atacantes tomaron el control de los registros y modificaron los servidores DNS autoritativos. Si controlas el DNS, controlas el tráfico que llega a esos dominios. Con ese acceso, hicieron algo muy listo y peligroso a la vez: **engañaron a las autoridades de certificación (CA)**.
+El truco es feo y elegante a la vez. Si controlas el DNS autoritativo de un dominio, controlas lo que ese dominio "demuestra" ser. Y resulta que así es exactamente como se valida un certificado HTTPS: el sistema te pide que pongas un registro TXT concreto o que respondas en una ruta específica, y si lo haces bien, la autoridad certificadora asume que eres el dueño legítimo. Los atacantes, con el DNS en su poder, pudieron decir "sí, este dominio es mío, aquí la prueba" — y consiguieron doce certificados válidos (once de Let's Encrypt, uno de ZeroSSL) para dominios que no eran suyos.
 
-## ¿Cómo funciona el truco?
+Para cualquier navegador, esa conexión era legítima y segura al cien por cien. Ese es justo el punto flaco: el sistema de certificados entero da por hecho que quien controla el DNS controla el dominio, y es una asunción razonable el 99,9% del tiempo — hasta que el registro de un TLD entero queda comprometido y deja de serlo.
 
-Cuando pides un certificado HTTPS (como los de Let's Encrypt o ZeroSSL), el sistema necesita verificar que realmente eres el dueño del dominio. La validación estándar es automática: el sistema te pide que coloques un registro TXT específico o que respondas a una petición HTTP en una ruta concreta.
+Por suerte Google tiene sus propios sistemas de Certificate Transparency vigilando esto como un halcón, y en cuanto detectaron los certificados raros los bloquearon directamente en Chrome vía CRLSet antes de que nadie pudiera usarlos para hacer un hombre-en-el-medio de verdad, y avisaron a las CAs para revocarlos globalmente. Rápido y limpio, como debe ser.
 
-Si los atacantes controlan el DNS, pueden decir: "Sí, ese dominio es mío, aquí tienes la prueba". Resultado: la CA emite un certificado oficial para `google.com` (o subdominios críticos) porque técnicamente "demostraste" el control. 
-
-Así consiguieron **12 certificados válidos** (11 de Let's Encrypt y 1 de ZeroSSL). Para el navegador, la conexión era 100% legítima y "segura".
-
-## El problema no es la encriptación, es la confianza
-
-El sistema de certificados actual asume que si controlas el DNS, controlas el dominio. Es una simplificación necesaria para que Internet funcione a escala, pero aquí es donde está el punto ciego. 
-
-Google se dio cuenta rápido —tienen sistemas de monitoreo de transparencia de certificados que son una bestia— y activó el protocolo de emergencia:
-
-1. **CRLSet**: Bloquearon los certificados directamente en Chrome antes de que nadie pudiera usarlos para un ataque de *man-in-the-middle*.
-2. **Coordinación**: Avisaron a las CAs para revocar esos certificados globalmente.
-
-Si quieres revisar qué certificados se están emitiendo para tus dominios, **Certificate Transparency (CT)** es tu mejor amigo. Aquí un ejemplo rápido de cómo consultar registros en un log de CT usando `openssl` o herramientas tipo `crt.sh`:
-
-```bash
-# Ejemplo conceptual para buscar certificados emitidos recientemente
-curl -s "https://crt.sh/?q=tu-dominio.com&output=json" | jq .
-```
-
-## ¿Qué sacamos en claro?
-
-Esto no significa que debas dejar de confiar en HTTPS. Lo que significa es que **la seguridad en Internet es un ecosistema**. Si el registrador de un TLD (.gh, .sl, .as) no tiene sus sistemas bien blindados (MFA, auditorías, controles de acceso), todo lo que dependa de ellos queda expuesto.
-
-**Mi consejo práctico:**
-* **Monitorea tus dominios:** Usa herramientas como [crt.sh](https://crt.sh/) o servicios de *Certificate Transparency monitoring* para recibir alertas cuando alguien emita un certificado a tu nombre.
-* **DNSSEC:** No soluciona el problema de las CAs, pero es una capa más de integridad que deberías tener activada sí o sí.
-* **No te fíes solo del candado:** HTTPS asegura el transporte, pero no garantiza que la web que visitas sea la que crees, especialmente si el DNS está comprometido.
-
-La noticia original viene de [The Hacker News](https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html), por si quieres profundizar en los detalles técnicos de cómo movieron los registros.
+Lo que me deja esto es una cosa clara: HTTPS no es el problema, la confianza delegada sí lo es. Si el registrador de un TLD no tiene MFA, auditorías y controles de acceso decentes, todo lo que cuelgue de él — y ahí entran millones de sitios — queda a merced de lo débil que sea ese eslabón. Si quieres dormir un poco más tranquilo con tus propios dominios, mira si tu CA soporta monitorización de Certificate Transparency (crt.sh es gratis y va bien) para que te avisen si alguien emite un certificado a tu nombre sin que tú lo hayas pedido. Y activa DNSSEC ya que estás — no arregla esto, pero es una capa de integridad que no cuesta nada tener puesta.
 
 ---
 *Fuente: [The Hacker News](https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html)*
