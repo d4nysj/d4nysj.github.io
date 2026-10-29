@@ -111,14 +111,15 @@ permalink: /soporte/
 
   <div class="panel activo" id="panel-windows">
     <div class="card">
-      <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Windows-D4Nyos.zip">⬇ Descargar para Windows (.zip)</a>
+      <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Windows-Auto-D4Nyos.zip">⬇ Descargar para Windows 10/11 (.zip)</a>
       <ol>
         <li>Descomprime el <code>.zip</code> (clic derecho → Extraer todo).</li>
-        <li>Abre la carpeta y haz doble clic en <b>Conectar.bat</b>.</li>
-        <li>Si Windows SmartScreen avisa, pulsa <b>Más información → Ejecutar de todas formas</b> (es normal con programas nuevos sin firma masiva).</li>
-        <li>Se abre RustDesk ya conectado a mi servidor. Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
+        <li>Doble clic en <b>Conectar.bat</b>. Pedirá permiso de administrador — acéptalo, es necesario para instalar.</li>
+        <li>Te pedirá un <b>código de conexión</b>: es el que te he dado yo por teléfono o WhatsApp. Pégalo y pulsa aceptar.</li>
+        <li>Se instala todo solo (puede tardar 1-2 minutos). Al terminar aparece un <b>ID de 9 dígitos</b> — dímelo.</li>
+        <li>La primera vez que me conecte, te pedirá que aceptes en pantalla.</li>
       </ol>
-      <div class="checksum">SHA-256: bb6b144bdf9793c84957e6c786f5d437f05038accf92ba53e7512ef3a1abd0eb</div>
+      <div class="checksum">SHA-256: 183ebc5d92bc0f4acd2748d1a174a9f6cc62a5e538f999d36634bbb2ce49a459 — no lleva ningún código ni contraseña dentro, es seguro.</div>
     </div>
   </div>
 
@@ -128,8 +129,9 @@ permalink: /soporte/
       <ol>
         <li>Descomprime el archivo.</li>
         <li>Abre una terminal en esa carpeta y ejecuta: <code>./conectar.sh</code></li>
-        <li>Se abre RustDesk ya conectado a mi servidor. Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
+        <li>Se abre RustDesk. Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
       </ol>
+      <p style="color:#f59e0b; font-size:0.85rem;">⚠ De momento este paquete necesita que también tengas Tailscale instalado y conectado a mi red — dímelo y te paso el paso a paso por privado.</p>
       <div class="checksum">SHA-256: 5bf69fdd585a6f00b032888efe9ace133193e1c1f95f7a595c168cc09e91f954</div>
     </div>
   </div>
@@ -139,13 +141,10 @@ permalink: /soporte/
       <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Android-D4Nyos.apk">⬇ Descargar para Android (.apk)</a>
       <ol>
         <li>Instala el APK (el sistema puede avisar de "origen desconocido" — es normal al instalar fuera de la Play Store, permítelo solo para este archivo).</li>
-        <li>Abre RustDesk, ve a <b>Ajustes → General → Importar configuración del servidor</b>.</li>
-        <li>Pega este texto completo:</li>
-      </ol>
-      <p><code id="config-android">=0nI9EEOMFGa1k0QDpkS0oXevFFcQd3a2plTMZES1pGVRNlVhJGTpNVTO9UeXZlI6ISeltmIsIiI6ISawFmIsIyN24SN4EjL1kjLwATMiojI5FGblJnIsIyN24SN4EjL1kjLwATMiojI0N3boJye</code></p>
-      <ol start="4">
+        <li>Abre RustDesk, ve a <b>Ajustes → General → Importar configuración del servidor</b> y pega el texto que te paso por privado.</li>
         <li>Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
       </ol>
+      <p style="color:#f59e0b; font-size:0.85rem;">⚠ De momento este paquete necesita que también tengas Tailscale instalado y conectado a mi red — dímelo y te paso el paso a paso por privado.</p>
       <div class="checksum">SHA-256: b7910dea1b6ec4a079aa753e0432c2269b843d89d900c7a3930b6ec13f3ba112</div>
     </div>
   </div>
