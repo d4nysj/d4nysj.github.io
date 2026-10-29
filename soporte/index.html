@@ -1,0 +1,165 @@
+---
+layout: null
+permalink: /soporte/
+---
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Soporte remoto — Daniel San Juan</title>
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --bg-elevated: #15151a;
+    --border: #27272a;
+    --text: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --accent: #34d399;
+    --accent-contrast: #052e21;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+  }
+  .wrap { max-width: 640px; width: 100%; }
+  h1 { font-size: 1.7rem; margin-bottom: 6px; }
+  p.sub { color: var(--text-muted); margin-top: 0; margin-bottom: 36px; font-size: 0.95rem; }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    flex: 1;
+    min-width: 110px;
+    padding: 14px 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all .15s ease;
+  }
+  .tab:hover { border-color: #3f3f46; color: var(--text); }
+  .tab.activo { border-color: var(--accent); color: var(--accent); background: rgba(52,211,153,0.08); }
+  .panel { display: none; }
+  .panel.activo { display: block; }
+  .card {
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .boton-descarga {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+  .boton-descarga:hover { opacity: 0.9; }
+  ol { color: var(--text-muted); line-height: 1.7; padding-left: 20px; margin: 0; }
+  ol li { margin-bottom: 4px; }
+  ol b { color: var(--text); }
+  .nota {
+    margin-top: 18px;
+    font-size: 0.82rem;
+    color: #71717a;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+  code {
+    background: #1f1f24;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+  .checksum { font-size: 0.75rem; color: #52525b; margin-top: 10px; word-break: break-all; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Soporte remoto</h1>
+  <p class="sub">Descarga el cliente, ábrelo, y quedo conectado directamente — sin configurar nada. Servidor propio, no pasa por terceros.</p>
+
+  <div class="tabs">
+    <div class="tab activo" data-panel="windows" onclick="elegir('windows')">🪟 Windows</div>
+    <div class="tab" data-panel="linux" onclick="elegir('linux')">🐧 Linux</div>
+    <div class="tab" data-panel="android" onclick="elegir('android')">🤖 Android</div>
+  </div>
+
+  <div class="panel activo" id="panel-windows">
+    <div class="card">
+      <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Windows-D4Nyos.zip">⬇ Descargar para Windows (.zip)</a>
+      <ol>
+        <li>Descomprime el <code>.zip</code> (clic derecho → Extraer todo).</li>
+        <li>Abre la carpeta y haz doble clic en <b>Conectar.bat</b>.</li>
+        <li>Si Windows SmartScreen avisa, pulsa <b>Más información → Ejecutar de todas formas</b> (es normal con programas nuevos sin firma masiva).</li>
+        <li>Se abre RustDesk ya conectado a mi servidor. Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
+      </ol>
+      <div class="checksum">SHA-256: bb6b144bdf9793c84957e6c786f5d437f05038accf92ba53e7512ef3a1abd0eb</div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-linux">
+    <div class="card">
+      <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Linux-D4Nyos.tar.gz">⬇ Descargar para Linux (.tar.gz)</a>
+      <ol>
+        <li>Descomprime el archivo.</li>
+        <li>Abre una terminal en esa carpeta y ejecuta: <code>./conectar.sh</code></li>
+        <li>Se abre RustDesk ya conectado a mi servidor. Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
+      </ol>
+      <div class="checksum">SHA-256: 5bf69fdd585a6f00b032888efe9ace133193e1c1f95f7a595c168cc09e91f954</div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-android">
+    <div class="card">
+      <a class="boton-descarga" href="https://github.com/d4nysj/d4nysj.github.io/releases/download/soporte-remoto-v1/RustDesk-Android-D4Nyos.apk">⬇ Descargar para Android (.apk)</a>
+      <ol>
+        <li>Instala el APK (el sistema puede avisar de "origen desconocido" — es normal al instalar fuera de la Play Store, permítelo solo para este archivo).</li>
+        <li>Abre RustDesk, ve a <b>Ajustes → General → Importar configuración del servidor</b>.</li>
+        <li>Pega este texto completo:</li>
+      </ol>
+      <p><code id="config-android">=0nI9EEOMFGa1k0QDpkS0oXevFFcQd3a2plTMZES1pGVRNlVhJGTpNVTO9UeXZlI6ISeltmIsIiI6ISawFmIsIyN24SN4EjL1kjLwATMiojI5FGblJnIsIyN24SN4EjL1kjLwATMiojI0N3boJye</code></p>
+      <ol start="4">
+        <li>Dime el <b>ID</b> de 9 dígitos que aparece en pantalla.</li>
+      </ol>
+      <div class="checksum">SHA-256: b7910dea1b6ec4a079aa753e0432c2269b843d89d900c7a3930b6ec13f3ba112</div>
+    </div>
+  </div>
+
+  <p class="nota">Este programa (RustDesk) es software libre y gratuito. El servidor al que conecta es propio, alojado en mi infraestructura — no pasa por servidores de terceros. Solo yo puedo conectarme, y únicamente cuando tú lo autorices desde tu pantalla.</p>
+</div>
+
+<script>
+function elegir(nombre) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('activo'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('activo'));
+  document.querySelector('.tab[data-panel="' + nombre + '"]').classList.add('activo');
+  document.getElementById('panel-' + nombre).classList.add('activo');
+}
+</script>
+</body>
+</html>
