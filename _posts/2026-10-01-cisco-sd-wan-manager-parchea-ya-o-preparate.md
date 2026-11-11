@@ -4,7 +4,7 @@ date: 2026-10-01 14:50:05 +0200
 categories: ["Ciberseguridad", "Redes"]
 tags: ["cisco", "sdwan", "vulnerabilidad", "cisa", "seguridad"]
 image:
-  path: https://live.staticflickr.com/233/450303689_9970b01798_b.jpg
+  path: /assets/img/posts/2026-10-01-cisco-sd-wan-manager-parchea-ya-o-preparate.jpg
   alt: "Cisco SD-WAN Manager: Parchea ya o prepárate"
 ---
 
